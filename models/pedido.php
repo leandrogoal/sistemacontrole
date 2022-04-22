@@ -56,18 +56,24 @@ class pedido extends model{
     }
 
     public function alterarPedido($id,$total,$forma_pag,$pagamento){
-        
-        $sql = "UPDATE rifa SET nome_sort = :nome, email = :email, telefone = :telefone, confirma = :confirma  WHERE id = :id";
-		$sql = $this->db->prepare($sql);
-		$sql->bindValue(':nome', $nome);
-        $sql->bindValue(':email', $email);
-        $sql->bindValue(':telefone', $telefone);
-        $sql->bindValue(':confirma', $confirma);
-		$sql->bindValue(':id', $id);
-		$sql->execute();
+        $troco = $pagamento - $total;
+        $fechado = 1;
+        $data_fecha = date('Y-m-d');
 
+        $sql = "UPDATE pedido SET total = :total, forma_pag = :forma_pag, pagamento = :pagamento,
+        troco = :troco, fechado = :fechado, data_fecha = :data_fecha  WHERE id = :id ";
+		$sql = $this->db->prepare($sql);
+		$sql->bindValue(':total', $total);
+        $sql->bindValue(':forma_pag', $forma_pag);
+        $sql->bindValue(':pagamento', $pagamento);
+        $sql->bindValue(':troco', $troco);
+        $sql->bindValue(':fechado', $fechado);
+        $sql->bindValue(':data_fecha', $data_fecha);
+        $sql->bindValue(':id', $id);
+        $sql->execute();
+
+        
+    
     }
 
-}
-
-
+} 

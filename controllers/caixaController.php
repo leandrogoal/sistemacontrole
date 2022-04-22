@@ -41,14 +41,24 @@ class caixaController extends controller {
 			$pagamento = $_POST['pagamento'];
 			
 			$alterarPedido=$pedido->alterarPedido($id,$total,$forma_pag,$pagamento);
-			$dados['total'] = $somaPedido;
+			
+			header('Location: caixa/fechado?ped='.$ped);
+			exit();
 		}
+
 		
 		$this->loadView('caixa', $dados);
 
 	}
 	public function fechado(){
+		$pedido = new pedido();
 		$dados = array();
+		$ped = $_GET['ped'];
+		$selectPedidos=$pedido->selectPedidos($ped);
+		$dados['pedidos'] = $selectPedidos;
+
+		$somaPedido=$pedido->somaPedido($ped);
+		$dados['total'] = $somaPedido;
 
 		$this->loadView('fechado', $dados);
 	}

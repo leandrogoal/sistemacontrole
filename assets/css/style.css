@@ -148,6 +148,26 @@ i {
 	background-color: rgb(12, 71, 95);
 	padding: 15px;
 }
+.fechamento_dados_empresa{
+	padding-left: 40px;
+	font-size: 21px;
+}
+.fecha_bot{
+	display: flex;
+	width: 150px;
+	margin: auto;
+}
+.fecha_bot a{
+	margin-left: 20px;
+}
+.total_fecha{
+	display: flex;
+	padding-left: 50px;
+	padding-right: 90px;
+	justify-content: end;
+	font-size: 25px;
+	font-weight: bold;
+}
 @media(min-width: 992px){
 	.navbar-expand-custom {
 	    -ms-flex-flow: row nowrap;

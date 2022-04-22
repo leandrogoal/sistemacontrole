@@ -17,12 +17,50 @@
 
 
 <div class="corpoCaixa container-fluid ">
-  <div class="top_fechado">
-      Dados da Empresa 
-  </div>
-  <hr>
-  <div>
+  <div class="caixa">
+    <div class='fechamento_dados_empresa'>
+      Dados da Empresa
+    </div>
+      
   
+    <hr>
+    <div>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Produto</th>
+            <th scope="col">Quantidade</th>
+            <th scope="col">Valor Unid</th>
+            <th scope="col">Total</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+
+        <?php if($pedidos<>""){
+        foreach( $pedidos as $pedido): ?>
+          <tr>      
+            <th><?=$pedido['nome_prod']; ?> </th>
+            <td><?=$pedido['quant']; ?></td>
+            <td><?=number_format($pedido['valor'], 2, ',','.'); ?></td>
+            <td><?=number_format($pedido['total'], 2, ',','.'); ?></td>
+            
+          </tr>
+          <?php endforeach; 
+          }; ?> 
+        </tbody>
+      </table>
+          <div class='total_fecha'>Total : R$ <?=number_format($total, 2, ',','.'); ?></div>
+    </div>
+    <hr>
+    <div class='fecha_bot'>
+      <a href="#" type="button" class="btn btn-info">Imprimir </a>
+      <a href="#" type="button" class="btn btn-info">Novo Pedido </a>
+    </div>
+    <hr>
+    <div>
+    
+    </div>
   </div>
 </div>
 

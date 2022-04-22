@@ -56,7 +56,7 @@
       </table>
   
     <div >
-      <form action="caixa/fechado" class="resumoPed">
+      <form method='post' class="resumoPed">
         <div><div>Pedido </div> <?=$ultimoPedido['id'];?></div>  
         <div> <div>TOTAL : </div>  R$ <?=number_format($total, 2, ',','.');?></div>
         <div>
