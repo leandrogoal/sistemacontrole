@@ -18,7 +18,7 @@
 
 <div class="corpoCaixa container-fluid ">
   <div class="top_fechado">
-      Dados da Empresa alteraçao do sistema
+      Dados da Empresa 
   </div>
   <hr>
   <div>
