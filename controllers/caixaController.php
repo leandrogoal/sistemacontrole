@@ -4,6 +4,7 @@ class caixaController extends controller {
 	public function index() {
 		$produtos = new produtos();
 		$pedido = new pedido();
+		$estoque = new estoque();
 		$dados = array();
 
 
@@ -60,6 +61,9 @@ class caixaController extends controller {
 			$total = $somaPedido;
 			$forma_pag = $_POST['forma_pag'];
 			$pagamento = $_POST['pagamento'];
+
+			$selectPedidos=$pedido->selectPedidos($ped);
+			$baixaEstoque = $estoque->baixaEstoque($selectPedidos);
 			
 			$alterarPedido=$pedido->alterarPedido($id,$total,$forma_pag,$pagamento);
 			

@@ -5,8 +5,7 @@ class produtoController extends controller {
 		$produtos = new produtos();
 		$dados = array();
 		
-		$selectProdutos= $produtos->selectProdutos();
-			
+		$selectProdutos= $produtos->selectProdutosTotal();
 		$dados['produtos'] = $selectProdutos;
 
 		if(isset($_GET['id_prod'])){

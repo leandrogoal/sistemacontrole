@@ -13,7 +13,7 @@ class produtos extends model{
     }
 
     public function selectProdutos(){
-        $sql ="SELECT * FROM produtos";
+        $sql ="SELECT * FROM produtos WHERE estoque > 0 ";
         $sql = $this->db->query($sql);
         
         if($sql->rowCount() > 0){
@@ -24,6 +24,20 @@ class produtos extends model{
         
      return $array;
     }
+
+    public function selectProdutosTotal(){
+        $sql ="SELECT * FROM produtos  ";
+        $sql = $this->db->query($sql);
+        
+        if($sql->rowCount() > 0){
+         $array = $sql->fetchAll();           
+         }else{
+         $array= "";    
+         }
+        
+     return $array;
+    }
+
     public function excluirProduto($id_prod){
         $sql = "DELETE FROM produtos WHERE id = '$id_prod'";
         $sql = $this->db->query($sql);
@@ -53,5 +67,7 @@ class produtos extends model{
 
             return "aviso1";
     }
+   
+
     
 }

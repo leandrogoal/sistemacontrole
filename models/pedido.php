@@ -28,7 +28,8 @@ class pedido extends model{
        Public function selectPedidos($ped){
         $array="";
         $sql = "SELECT * ,         
-        (select produtos.nome from produtos where produtos.id = item_pedido.produto ) as nome_prod
+        (select produtos.nome from produtos where produtos.id = item_pedido.produto ) as nome_prod,
+        (select produtos.estoque from produtos where produtos.id = item_pedido.produto ) as estoque_produto
         FROM item_pedido WHERE pedido= :pedido ORDER BY id DESC";
         $sql = $this->db->prepare($sql);
         $sql->bindValue(':pedido', $ped);
@@ -37,7 +38,7 @@ class pedido extends model{
         if($sql->rowCount() > 0){
          $array = $sql->fetchALL();           
          }
-            
+    
         return $array;
     }
     public function excluirItemPedido($id_prod){
