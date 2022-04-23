@@ -5,34 +5,55 @@ class caixaController extends controller {
 		$produtos = new produtos();
 		$pedido = new pedido();
 		$dados = array();
+
+
 		
 		$selectPedidoUltimo= $pedido->selectPedidoUltimo();
 		$dados['ultimoPedido'] = $selectPedidoUltimo;
-		$ped = $selectPedidoUltimo['id'];
+		if(isset($selectPedidoUltimo['id'])){
+			$ped = $selectPedidoUltimo['id'];
+		}
+		
 	
 		$selectProdutos=$produtos->selectProdutos();
 		$dados['produtos'] = $selectProdutos;
+		
+		
+		if(isset($selectPedidoUltimo['id'])){
+			if(isset($_POST['prod'])){
+				$ped = $selectPedidoUltimo['id'];
+				$prod = $_POST['prod'];
+				$valor = $_POST['valor'];
+				$quant= $_POST['quant'];
+				$total = $quant * $valor;
 				
-		if(isset($_POST['prod'])){
-			$ped = $selectPedidoUltimo['id'];
-			$prod = $_POST['prod'];
-			$valor = $_POST['valor'];
-			$quant= $_POST['quant'];
-			$total = $quant * $valor;
-			
-			$inserirItens= $pedido->inserirItens($ped, $prod, $valor, $quant, $total);
-		}
-		$selectPedidos=$pedido->selectPedidos($ped);
-		$dados['pedidos'] = $selectPedidos;
+				$inserirItens= $pedido->inserirItens($ped, $prod, $valor, $quant, $total);
+			}
 
+		}else{
+
+			$inserirPedidos= $pedido->inserirPedido();
+			header('Location: caixa');
+
+		}	
+			
+		if(isset($ped)){
+			$selectPedidos=$pedido->selectPedidos($ped);
+			$dados['pedidos'] = $selectPedidos;
+		}
+		
+		
 		if(isset($_GET['item_ped'])){
 			$item_ped = $_GET['item_ped'];
 			$excluirPedido= $pedido->excluirItemPedido($item_ped);
 			header("Location: caixa ");
 
 		}
-		$somaPedido=$pedido->somaPedido($ped);
-		$dados['total'] = $somaPedido;
+		if(isset($ped)){
+			$somaPedido=$pedido->somaPedido($ped);
+			$dados['total'] = $somaPedido;
+		}
+		
 		
 		if(isset($_POST['forma_pag'])){
 			$id= $ped;

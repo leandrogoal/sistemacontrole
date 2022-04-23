@@ -1,7 +1,8 @@
 <?php
 class pedido extends model{
     function selectPedidoUltimo(){ 
-        $sql ="SELECT * FROM pedido WHERE id =(select max(id) from pedido)";
+        $array = "";
+        $sql ="SELECT * FROM pedido WHERE id =(select max(id) from pedido) AND fechado = '0'";
            $sql = $this->db->query($sql);
            
            if($sql->rowCount() > 0){
@@ -72,8 +73,17 @@ class pedido extends model{
         $sql->bindValue(':id', $id);
         $sql->execute();
 
-        
-    
     }
+    function inserirPedido(){
+        $total= 0;
+        $fechado = '0';
+        echo 'entrou';
+
+        $sql = "INSERT INTO pedido (total , fechado ) VALUES (:total, :fechado)";
+        $sql = $this->db->prepare($sql);
+        $sql->bindValue(':total', $total);
+        $sql->bindValue(':fechado', $fechado);
+        $sql->execute();
+        }
 
 } 

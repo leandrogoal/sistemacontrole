@@ -20,7 +20,7 @@
   <div class="caixa">
     <center><h2>Caixa</h2></center>
     <hr>
-
+    
     <table class="table">
       <thead>
         <tr>
@@ -54,7 +54,10 @@
         </form>  
       </tbody>
       </table>
-  
+
+    
+    <?php if(isset($ultimoPedido['id'])){?>
+
     <div >
       <form method='post' class="resumoPed">
         <div><div>Pedido </div> <?=$ultimoPedido['id'];?></div>  
@@ -109,7 +112,8 @@
         }; ?> 
       </tbody>
     </table>
-
+    <?php  
+    } ?>
   </div>
 </div>
 <script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/jquery.min.js"></script>
