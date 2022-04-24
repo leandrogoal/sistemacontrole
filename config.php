@@ -1,6 +1,7 @@
 <?php
 require 'environment.php';
 
+
 $config = array();
 if(ENVIRONMENT == 'development') {
 	define("BASE_URL", "http://localhost/sistemaControle/");

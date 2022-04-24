@@ -32,14 +32,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo BASE_URL; ?>estoque"><i class="far fa-chart-bar"></i>Estoque</a>
                 </li>
+                
                 <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0);"><i class="far fa-calendar-alt"></i>Calendar</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0);"><i class="far fa-chart-bar"></i>Charts</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0);"><i class="far fa-copy"></i>Documents</a>
+                    <a class="nav-link" href="#"><i class="far fa-copy"></i>Usuários</a>
                 </li>
             </ul>
         </div>

@@ -86,3 +86,20 @@ $(function () {
     //document.getElementById('resultado').innerHTML =total;
   }
   total.textContent = product.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+
+
+  //olho do login
+  jQuery(document).ready(function($) {
+  
+    $('#show_password').click(function(e) {
+      e.preventDefault();
+      if ( $('#senha').attr('type') == 'password' ) {
+        $('#senha').attr('type', 'text');
+        $('#show_password').attr('class','fa-solid fa-eye-slash' );
+      } else {
+          $('#senha').attr('type', 'password');
+          $('#show_password').attr('class', 'fa-solid fa-eye');
+      }
+    });
+    
+  });
