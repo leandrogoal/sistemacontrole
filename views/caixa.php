@@ -1,6 +1,3 @@
-<?php
-
-?>
 <html>
 <head>
     <title>Sistema Controle de Vendas</title>

@@ -72,7 +72,7 @@ class caixaController extends controller {
 		}
 
 		
-		$this->loadView('caixa', $dados);
+		$this->loadTemplate('caixa', $dados);
 
 	}
 	public function fechado(){
