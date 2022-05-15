@@ -7,19 +7,19 @@ class caixaController extends controller {
 		$estoque = new estoque();
 		$dados = array();
 
-
+	
 		
 		$selectPedidoUltimo= $pedido->selectPedidoUltimo();
 		$dados['ultimoPedido'] = $selectPedidoUltimo;
 		if(isset($selectPedidoUltimo['id'])){
 			$ped = $selectPedidoUltimo['id'];
 		}
-		
+	
 	
 		$selectProdutos=$produtos->selectProdutos();
 		$dados['produtos'] = $selectProdutos;
 		
-		
+	
 		if(isset($selectPedidoUltimo['id'])){
 			if(isset($_POST['prod'])){
 				$ped = $selectPedidoUltimo['id'];
@@ -37,7 +37,7 @@ class caixaController extends controller {
 			header('Location: caixa');
 
 		}	
-			
+				
 		if(isset($ped)){
 			$selectPedidos=$pedido->selectPedidos($ped);
 			$dados['pedidos'] = $selectPedidos;
@@ -50,13 +50,14 @@ class caixaController extends controller {
 			header("Location: caixa ");
 
 		}
+		
 		if(isset($ped)){
 			$somaPedido=$pedido->somaPedido($ped);
 			$dados['total'] = $somaPedido;
 		}
 		
-		
 		if(isset($_POST['forma_pag'])){
+
 			$id= $ped;
 			$total = $somaPedido;
 			$forma_pag = $_POST['forma_pag'];
@@ -72,7 +73,7 @@ class caixaController extends controller {
 		}
 
 		
-		$this->loadTemplate('caixa', $dados);
+		$this->loadView('caixa', $dados);
 
 	}
 	public function fechado(){

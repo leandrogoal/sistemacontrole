@@ -47,13 +47,14 @@ class pedido extends model{
     }
 
     public function somaPedido($ped){
-        $sql = "SELECT SUM(total) as total FROM item_pedido WHERE pedido = '$ped'"; 
+    
+      $sql = "SELECT SUM(total) as total FROM item_pedido WHERE pedido = :pedido"; 
         $sql = $this->db->prepare($sql);
         $sql->bindValue(':pedido',$ped);
         $sql->execute();
         $row = $sql->fetch(); 
         $array = $row['total'];
-      
+    
         return $array;
     }
 

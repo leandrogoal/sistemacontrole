@@ -1,4 +1,13 @@
+<?php
+
+if(!isset($_SESSION['login'])){
+    header("Location: login");
+    exit();
+}
+ 
+?>
 <html>
+
 <head>
     <title>Sistema Controle de Vendas</title>
     <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon" />
@@ -35,6 +44,9 @@
                 
                 <li class="nav-item">
                     <a class="nav-link" href="#"><i class="far fa-copy"></i>Usuários</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-btn btn-info" href="login/sair">Sair</a>
                 </li>
             </ul>
         </div>

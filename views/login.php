@@ -25,14 +25,14 @@
             <?php
         }
     ?>
-    <form method="post">
-    	<input type="text" name="usuario" placeholder="Usuário" required="required" />
-        <input type="password" name="senha" placeholder="Senha" required="required" id="senha" />
-        <i id="show_password" class="fa-solid fa-eye"></i>
-       
-
-        <button type="submit" class="btn btn-primary btn-block btn-large">ENTRAR</button>
-    </form>
+    <div class='sublogin'>
+        <form method="post">
+            <input type="text" name="usuario" placeholder="Usuário" required="required" />
+            <input type="password" name="senha" placeholder="Senha" required="required" id="senha" />
+            <button type="submit" class="btn btn-primary btn-block btn-large">ENTRAR</button>
+        </form>
+    </div>
+    
 </div>
 
 <script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/jquery.min.js"></script>

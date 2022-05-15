@@ -24,11 +24,11 @@
                 <td><?=$produto['estoque']?></td>
                 <td>
 
-                    <form method = 'POST'>
-                    <input type="hidden" name="estoque" value='<?=$produto['estoque']?>'>
+                    <form class='flex'  method = 'POST'>
+                        <input type="hidden" name="estoque" value='<?=$produto['estoque']?>'>
                         <input type="hidden" name="produto" value='<?=$produto['id']?>'>
-                        <input class='class="form-control"' name ='estoque_mais' type="number"> 
-                        <input type="submit" class="btn btn-info">
+                        <input name ='estoque_mais' type="number"> 
+                        <input type="submit" class="btn btn-info btestoque">
                     </form>
                     
                 </td>

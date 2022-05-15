@@ -12,6 +12,7 @@ class produtoController extends controller {
 			$id_prod = $_GET['id_prod'];
 			$excluirProduto= $produtos->excluirProduto($id_prod);
 			header("Location: produto ");
+			exit();
 
 		}
 		$this->loadTemplate('produto', $dados);

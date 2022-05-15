@@ -1,3 +1,12 @@
+<?php
+
+if(!isset($_SESSION['login'])){
+    header("Location: login");
+    exit();
+}
+ 
+?>
+
 <html>
 <head>
     <title>Sistema Controle de Vendas</title>
