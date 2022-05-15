@@ -26,7 +26,7 @@ if(!isset($_SESSION['login'])){
   <div class="caixa">
     <center><h2>Caixa</h2></center>
     <hr>
-    
+   
     <table class="table">
       <thead>
         <tr>
@@ -121,6 +121,10 @@ if(!isset($_SESSION['login'])){
     <?php  
     } ?>
   </div>
+  <div class='btsaircaixa'>
+      <center><a class="btn btn-danger" href="login/sair">Sair</a></center>
+  </div>
+  
 </div>
 <script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/jquery.min.js"></script>
 		<script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/bootstrap.min.js"></script>

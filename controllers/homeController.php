@@ -7,5 +7,12 @@ class homeController extends controller {
 		$this->loadTemplate('home', $dados);
 
 	}
+	public function relatoriofechamento() {
+		$dados = array();
+
+		$this->loadTemplate('relatoriofechamento', $dados);
+
+	}
+
 
 }

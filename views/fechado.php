@@ -54,13 +54,16 @@
     </div>
     <hr>
     <div class='fecha_bot'>
-      <a href="#" type="button" class="btn btn-info">Imprimir </a>
+      <!--<a href="#" type="button" class="btn btn-info">Imprimir </a>-->
       <a href="<?php echo BASE_URL; ?>caixa" type="button" class="btn btn-info">Novo Pedido </a>
     </div>
     <hr>
     <div>
     
     </div>
+  </div>
+  <div class='btsaircaixa'>
+      <!--<center><a class="btn btn-danger" href="login/sair">Sair</a></center>-->
   </div>
 </div>
 
