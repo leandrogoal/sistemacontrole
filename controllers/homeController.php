@@ -9,6 +9,11 @@ class homeController extends controller {
 	}
 	public function relatoriofechamento() {
 		$dados = array();
+		$relatorio = new relatorio();
+
+		$selecRelatoriosDias= $relatorio->selecRelatoriosDias();
+		$dados['datas'] = $selecRelatoriosDias;
+		
 
 		$this->loadTemplate('relatoriofechamento', $dados);
 
